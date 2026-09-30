@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>اختبار الثقافة العامة — 50 سؤالاً</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+  <!-- صفحة الاستقبال -->
+  <section id="welcome" class="welcome">
+    <div class="welcome-inner">
+      <span class="welcome-mark" aria-hidden="true"></span>
+      <p class="welcome-msg" dir="ltr" lang="aeb">ya monmon rabi ywaf9k nchalah w ya7mik rabi ya7fthek w ywf9k ya rab aminnnnnnnnnnnnnnnnnnnnn</p>
+
+      <form class="gate" id="gateForm" autocomplete="off">
+        <label for="gatePass">أدخل كلمة السر للدخول إلى الموقع</label>
+        <div class="gate-row">
+          <input type="password" id="gatePass" name="gatePass" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+          <button class="btn primary" type="submit">دخول</button>
+        </div>
+        <p class="gate-error" id="gateError" role="alert"></p>
+      </form>
+    </div>
+  </section>
+
+  <header class="topbar">
+    <button class="brand" id="brandBtn" type="button" aria-label="العودة إلى الرئيسية">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">اختبار الثقافة العامة</span>
+    </button>
+  </header>
+
+  <main>
+    <!-- الرئيسية -->
+    <section id="home" class="screen">
+      <div class="intro">
+        <h1>50 سؤالاً في الثقافة العامة</h1>
+        <p>اختر مجموعة للتدرّب عليها، أو ابدأ اختباراً شاملاً. لكل سؤال أربعة خيارات، وتظهر الإجابة الصحيحة مباشرة بعد الاختيار.</p>
+      </div>
+
+      <div class="axes" id="axesList"></div>
+
+      <div class="modes">
+        <button class="btn primary" id="startAll" type="button">كل الأسئلة (50)</button>
+        <button class="btn" id="startRandom" type="button">اختبار عشوائي (20 سؤالاً)</button>
+      </div>
+
+      <label class="toggle">
+        <input type="checkbox" id="shuffleOpts" checked>
+        <span>خلط ترتيب الخيارات</span>
+      </label>
+    </section>
+
+    <!-- الاختبار -->
+    <section id="quiz" class="screen" hidden>
+      <div class="quiz-head">
+        <span class="quiz-axis" id="quizAxis"></span>
+        <span class="quiz-count" id="quizCount"></span>
+      </div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="progress">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <article class="card">
+        <h2 class="question" id="questionText"></h2>
+        <div class="options" id="options" role="group" aria-label="الخيارات"></div>
+        <div class="feedback" id="feedback" aria-live="polite"></div>
+      </article>
+
+      <div class="quiz-foot">
+        <span class="score-live" id="scoreLive"></span>
+        <button class="btn primary" id="nextBtn" type="button" disabled>التالي</button>
+      </div>
+    </section>
+
+    <!-- النتيجة -->
+    <section id="result" class="screen" hidden>
+      <div class="result-top">
+        <div class="ring" id="ring">
+          <span class="ring-num" id="resPercent"></span>
+        </div>
+        <div>
+          <h2 id="resTitle"></h2>
+          <p id="resDetail"></p>
+        </div>
+      </div>
+
+      <div class="modes">
+        <button class="btn primary" id="retryWrong" type="button">أعد الأسئلة الخاطئة</button>
+        <button class="btn" id="restartSame" type="button">أعد الاختبار</button>
+        <button class="btn ghost" id="goHome" type="button">الرئيسية</button>
+      </div>
+
+      <div id="review" class="review"></div>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
